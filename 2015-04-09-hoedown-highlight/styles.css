@@ -1,0 +1,124 @@
+@import url('//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic|IM+Fell+English:400,400italic|Raleway:300,400,700');
+
+#markdown {
+  color: #777;
+  padding: 0.5em 1em;
+  font: 1em "Ubuntu Mono", monospace;
+}
+
+
+/* INLINE */
+
+.string, .escape, .entity, .typography {
+  color: black;
+  font: 0.98em "IM Fell English";
+  font-style: inherit;
+  line-height: 1.55;
+}
+
+.link, .link .string {
+  color: #04E;
+}
+
+.link > .destination, .autolink {
+  color: #0091AB;
+  font-size: .86em;
+}
+
+.image.link, .image.link .string {
+  color: #F70;
+}
+
+.image.link > .destination {
+  color: inherit;
+}
+
+.emphasis, .emphasis .string {
+  color: #9B5011;
+}
+
+.code {
+  color: #170;
+}
+
+.linebreak {
+  background-color: #ddd;
+}
+
+.html {
+  color: #F70;
+}
+
+
+/* BLOCK */
+
+.header {
+  font-size: 1.2em;
+}
+
+.header > .content {
+  font-weight: bolder;
+}
+
+.header .string {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.quote.block {
+  color: #0EACE5;
+  font-style: italic;
+}
+
+.code.block {
+  color: #170;
+}
+
+.list {
+  color: black;
+  font-weight: bolder;
+}
+
+.list > .content {
+  color: #777;
+  font-weight: normal;
+}
+
+
+
+/* OTHER: TOOLTIP */
+
+#tooltip {
+  position: absolute;
+  background-color: #0A345D;
+  border-radius: 5px;
+  padding: .2em .4em;
+
+  font: 0.8em "Raleway", "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  color: white;
+}
+
+#tooltip li {
+  display: inline-block;
+  list-style: none;
+  margin-right: .3em;
+}
+
+#tooltip li::after {
+  display: inline;
+  content: "»";
+  margin-left: .2em;
+  color: #FFC766;
+  font-weight: 300;
+}
+
+#tooltip li:last-child {
+  margin-right: 0;
+  font-weight: 600;
+}
+
+#tooltip li:last-child::after {
+  display: none;
+}

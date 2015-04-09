@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8">
+  <title>Markdown</title>
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+  <pre id="markdown">
+<span class="setext header"><span class="content"><span class="string">Hoedown</span></span>
+=======
+</span>
+<span class="paragraph"><span class="link">[<span class="image link">![<span class="string">Build Status</span>](<span class="destination">https://travis-ci.org/hoedown/hoedown.png?branch=develop</span>)</span>](<span class="destination">https://travis-ci.org/hoedown/hoedown</span>)</span>
+</span>
+<span class="paragraph"><span class="code">`Hoedown`</span><span class="string"> is a revived fork of </span><span class="link">[<span class="string">Sundown</span>](<span class="destination">https://github.com/vmg/sundown</span>)</span><span class="string">,
+the Markdown parser based on the original code of the
+</span><span class="link">[<span class="string">Upskirt library</span>](<span class="destination">http://fossil.instinctive.eu/libupskirt/index</span>)</span><span class="string">
+by Natacha Porté.</span>
+</span>
+<span class="paragraph"><span class="string">This branch has the code for version 4, in which </span><span class="code">`Hoedown`</span><span class="string"> has been rewritten
+and is now targeting </span><span class="link">[<span class="string">CommonMark</span>](<span class="destination">http://commonmark.org</span>)</span><span class="string"> officially.</span>
+</span>
+<span class="quote block">&gt; <span class="content"><span class="paragraph"><span class="emphasis">**<span class="string">Important:</span>**</span><span class="string"> this code is in pre-alpha! Don't use it for production yet.
+</span></span></span>&gt; <span class="content"><span class="paragraph"><span class="string">The section below doesn't fully reflect the current features, but rather
+</span></span></span>&gt; <span class="content"><span class="paragraph"><span class="string">the goals for the final release.</span>
+</span></span></span>
+
+<span class="setext header"><span class="content"><span class="string">Features</span></span>
+--------
+</span>
+<span class="list"><span class="list item">  - <span class="content"><span class="paragraph"><span class="emphasis">**<span class="string">Standards compliant</span>**</span>
+</span></span><span class="content">
+</span>    <span class="content"><span class="paragraph"><span class="code">`Hoedown`</span><span class="string"> follows the CommonMark spec and is tested against it.
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">It's entirely compliant except for some
+</span></span></span>    <span class="content"><span class="paragraph"><span class="link">[<span class="string">differences</span>](<span class="destination">https://github.com/hoedown/hoedown/wiki/Spec-differences</span>)</span><span class="string">
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">needed mostly to guarantee security.</span>
+</span></span>
+</span><span class="list item">  - <span class="content"><span class="paragraph"><span class="emphasis">**<span class="string">Fast and efficient</span>**</span>
+</span></span><span class="content">
+</span>    <span class="content"><span class="paragraph"><span class="code">`Hoedown`</span><span class="string"> has been written with speed in mind; it reuses memory, operates
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">without an intermediate AST and renders at the same time, among other things.</span>
+</span></span><span class="content">
+</span>    <span class="content"><span class="paragraph"><span class="code">`Hoedown`</span><span class="string"> renders at 145% the speed of CMark (the reference C99 implementation)
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">at the time of writing. We tested many documents: this README, the spec,
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">John's syntax page, etc.</span>
+</span></span>
+</span><span class="list item">  - <span class="content"><span class="paragraph"><span class="emphasis">**<span class="string">Portable and zero-dependency</span>**</span>
+</span></span><span class="content">
+</span>    <span class="content"><span class="paragraph"><span class="code">`Hoedown`</span><span class="string"> is a zero-dependency library composed of some </span><span class="code">`.c`</span><span class="string"> files and their
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">headers. No dependencies, no bullshit. Only standard C89 that builds everywhere.</span>
+</span></span>
+</span><span class="list item">  - <span class="content"><span class="paragraph"><span class="emphasis">**<span class="string">Increased flexibility</span>**</span>
+</span></span><span class="content">
+</span>    <span class="content"><span class="paragraph"><span class="code">`Hoedown`</span><span class="string"> supports (unofficial) CommonMark extensions such as tables, math,
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">footnotes, and more! The new version gives even more control, allowing you
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">to enable or disable every single construct, not just extensions, at runtime.</span>
+</span></span>
+</span><span class="list item">  - <span class="content"><span class="paragraph"><span class="emphasis">**<span class="string">Customizable renderers</span>**</span>
+</span></span><span class="content">
+</span>    <span class="content"><span class="paragraph"><span class="code">`Hoedown`</span><span class="string"> is not stuck with HTML, renderers can output anything: TeX code,
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">an AST tree, statistics about the parsed document, binary data, etc.
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">Parsing is completely decoupled from rendering.</span>
+</span></span>
+</span><span class="list item">  - <span class="content"><span class="paragraph"><span class="emphasis">**<span class="string">Precise source mapping</span>**</span>
+</span></span><span class="content">
+</span>    <span class="content"><span class="paragraph"><span class="code">`Hoedown`</span><span class="string"> is more than a parser. It has character-level source mapping, both
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">direct and indirect, which is also present at inline constructs. This allows
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">for a variety of creative uses, see </span><span class="link">[<span class="string">the recipes</span>](<span class="destination">https://github.com/hoedown/hoedown/wiki</span>)</span><span class="string">.</span>
+</span></span>
+</span><span class="list item">  - <span class="content"><span class="paragraph"><span class="emphasis">**<span class="string">Safe for production</span>**</span>
+</span></span><span class="content">
+</span>    <span class="content"><span class="paragraph"><span class="code">`Hoedown`</span><span class="string"> includes protection against possible attacks like out of memory
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">situations, malformed syntax and extensive nesting. We've worked very hard
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">to make </span><span class="code">`Hoedown`</span><span class="string"> never leak, crash, loop or block under </span><span class="emphasis">*<span class="string">any</span>*</span><span class="string"> input.</span>
+</span></span><span class="content">
+</span>    <span class="content"><span class="paragraph"><span class="emphasis">**<span class="string">Warning</span>**</span><span class="string">: </span><span class="code">`Hoedown`</span><span class="string"> doesn't validate HTML found in Markdown documents.
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">Unless you disable HTML parsing entirely, you should always feed the
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">rendered HTML to </span><span class="link">[<span class="string">Lanli</span>](<span class="destination">https://github.com/hoedown/lanli</span>)</span><span class="string"> or another
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">sanitizer.</span>
+</span></span>
+</span><span class="list item">  - <span class="content"><span class="paragraph"><span class="emphasis">**<span class="string">Unicode aware</span>**</span>
+</span></span><span class="content">
+</span>    <span class="content"><span class="paragraph"><span class="code">`Hoedown`</span><span class="string"> is fully UTF-8 aware, both when parsing the source document and when
+</span></span></span>    <span class="content"><span class="paragraph"><span class="string">generating the resulting HTML.</span>
+</span></span></span></span>
+
+<span class="setext header"><span class="content"><span class="string">Bindings</span></span>
+--------
+</span>
+<span class="paragraph"><span class="string">You can see a community-maintained list of </span><span class="code">`Hoedown`</span><span class="string"> bindings at
+</span><span class="link">[<span class="string">the wiki</span>](<span class="destination">https://github.com/hoedown/hoedown/wiki/Bindings</span>)</span><span class="string">.</span>
+</span>
+
+<span class="setext header"><span class="content"><span class="string">Help us</span></span>
+-------
+</span>
+<span class="paragraph"><span class="code">`Hoedown`</span><span class="string"> is all about security. If you find a (potential) security vulnerability in the
+library, or a way to make it crash through malicious input, please report it to us by
+emailing the private </span><span class="link">[<span class="string">Hoedown Security</span>](<span class="destination">mailto:hoedown-security@googlegroups.com</span>)</span><span class="string">
+mailing list. The </span><span class="code">`Hoedown`</span><span class="string"> security team will review the vulnerability and work with you
+to reproduce and resolve it.</span>
+</span>
+
+<span class="setext header"><span class="content"><span class="string">Install</span></span>
+-------
+</span>
+<span class="paragraph"><span class="string">To build the library and executable, use </span><span class="link">[<span class="string">CMake</span>](<span class="destination">http://cmake.org</span>)</span><span class="string">:</span>
+</span>
+<span class="indented code block">    cmake -D CMAKE_BUILD_TYPE=Release .
+    cmake --build .
+
+</span><span class="paragraph"><span class="string">Or just drop the files at </span><span class="code">`src`</span><span class="string"> into your project.
+Hoedown doesn't have any special building requeriments.</span>
+</span></pre>
+<script src="zepto.min.js"></script><script src="main.js"></script></body>
+</html>
